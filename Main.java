@@ -17,24 +17,28 @@ public class Main {
         for (int i = 0; i < tareasDisponibles.size(); i++) {
             System.out.println(tareasDisponibles.get(i).toString());
         }
-        System.out.println("Ingrese una nueva tarea: ");
-        System.out.println("Nombre: ");
-        String nombre = sc.nextLine();
-        System.out.println("Descripcion: ");
-        String descripcion = sc.nextLine();
-        System.out.println("Estado: ");
-        int estado = sc.nextInt();
-        tareasDisponibles.add(new Tarea(nombre, descripcion, estado));
-        System.out.println("Cambia estado de las tareas");
-        System.out.println("1.Sin hacer");
-        System.out.println("2.En Proceso");
-        System.out.println("3.Completa");
+        System.out.println("Ingrese cuantas tareas desea añadir: ");
+        int numTareas = sc.nextInt();
+        int contador = 0;
+        do {
+            System.out.println("Ingrese una nueva tarea: ");
+            System.out.println("Nombre: ");
+            String nombre = sc.nextLine(); sc.nextLine();
+            System.out.println("Descripcion: ");
+            String descripcion = sc.nextLine(); sc.nextLine();
+            System.out.println("Estado: ");
+            int estado = sc.nextInt(); sc.nextLine();
+            tareasDisponibles.add(new Tarea(nombre, descripcion, estado));
+            contador++;
+        } while (contador != numTareas);
+        System.out.println("Cambia estado de las tareas a:");
         for (int i = 0; i < tareasDisponibles.size(); i++) {
-            int estadoTarea = sc.nextInt();
-            sc.nextLine();
-            tareasDisponibles.get(i).setEstado(estadoTarea);
+            System.out.println("1.Sin hacer");
+            System.out.println("2.En Proceso");
+            System.out.println("3.Completa");
             System.out.println(tareasDisponibles.get(i).toString());
-
+            int estadoTarea = sc.nextInt();sc.nextLine();
+            tareasDisponibles.get(i).setEstado(estadoTarea);
         }
         for (int i = 0; i < tareasDisponibles.size(); i++) {
             System.out.println(tareasDisponibles.get(i).toString());
